@@ -17496,11 +17496,19 @@ var routes = [
   component: _pages_PageNotFound_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }]; //dobbiamo esportare un istanza di VueRouter() con le eventuali configurazioni
 
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   //routes è un array di oggetti che rappresenta la configurazione di ogni rotta
   routes: routes,
   mode: "history"
-}));
+}); //
+
+router.beforeEach(function (to, from, next) {
+  var _to$meta$title;
+
+  document.title = (_to$meta$title = to.meta.title) !== null && _to$meta$title !== void 0 ? _to$meta$title : "Laravel Blog";
+  next();
+});
+/* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),
 

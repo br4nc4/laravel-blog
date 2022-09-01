@@ -37,8 +37,16 @@ const routes = [
 ]
 
 //dobbiamo esportare un istanza di VueRouter() con le eventuali configurazioni
-export default new VueRouter({
+const router = new VueRouter({
     //routes è un array di oggetti che rappresenta la configurazione di ogni rotta
     routes,
     mode: "history",
-}) 
+});
+
+//
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title ?? "Laravel Blog"
+    next()
+})
+
+export default router;
