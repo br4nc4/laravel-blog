@@ -2329,11 +2329,49 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container"
-  }, [_vm._v("\n    pagina home\n")]);
+    staticClass: "container px-4"
+  }, [_c("div", {
+    staticClass: "row gx-4 gx-lg-5 justify-content-center"
+  }, [_c("div", {
+    staticClass: "col-md-10 col-lg-8 col-xl-7"
+  }, [_vm._l(_vm.posts, function (post) {
+    return _c("div", {
+      key: post.id
+    }, [_c("div", {
+      staticClass: "post-preview"
+    }, [_c("a", {
+      attrs: {
+        href: "post.html"
+      }
+    }, [_c("h2", {
+      staticClass: "post-title"
+    }, [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("h3", {
+      staticClass: "post-subtitle"
+    }, [_vm._v(_vm._s(post.content))])]), _vm._v(" "), _c("p", {
+      staticClass: "post-meta"
+    }, [_vm._v("\n                            Posted by\n                            "), _c("a", {
+      attrs: {
+        href: "#!"
+      }
+    }, [_vm._v("Start Bootstrap")]), _vm._v("\n                            on " + _vm._s(post.created_At) + "\n                        ")])]), _vm._v(" "), _c("hr", {
+      staticClass: "my-4"
+    })]);
+  }), _vm._v(" "), _vm._m(0)], 2)])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "d-flex justify-content-end mb-4"
+  }, [_c("a", {
+    staticClass: "btn btn-primary text-uppercase",
+    attrs: {
+      href: "#!"
+    }
+  }, [_vm._v("Older Posts →")])]);
+}];
 render._withStripped = true;
 
 
