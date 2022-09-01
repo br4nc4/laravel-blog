@@ -3,7 +3,7 @@
         <!-- navbar -->
         <TheNavbar></TheNavbar>
 
-        <main>
+        <main class="pb-5">
             <PageHeader></PageHeader>
             <!-- contenuto di ogni pagina -->
             <router-view></router-view>
