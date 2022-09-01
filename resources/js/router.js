@@ -18,7 +18,7 @@ const routes = [
     {path: "/", component: Home, name:"home.index",
     meta: {
         title:"Clean Blog",
-        subtitle: "Here you can find our post examples",
+        subtitle: "You can see our post example",
         bgImage: "home-bg.jpg"
     }},
     {path: "/about", component: About, name:"about.index",
