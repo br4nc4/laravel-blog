@@ -1,5 +1,4 @@
 <template>
-    <div>
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="index.html"><strong>Laravel Blog</strong></a>
@@ -24,7 +23,6 @@
                 </div>
             </div>
         </nav>
-    </div>
 </template>
 
 <script>
@@ -32,3 +30,13 @@
 
     }
 </script>
+
+<style lang="scss">
+    #mainNav{
+        z-index: 10;
+        background-color: rgba(255,255,255, .7);
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(5px);
+    }
+</style>

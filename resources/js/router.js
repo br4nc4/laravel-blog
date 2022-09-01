@@ -15,7 +15,12 @@ const routes = [
         path è uguale all'URI da scrivere nella barra degli indirizzi
         component è il componente da mostrare quando la pagina viene visualizzata
     */
-    {path: "/", component: Home, name:"home.index"},
+    {path: "/", component: Home, name:"home.index",
+    meta: {
+        title:"Clean Blog",
+        subtitle: "A Blog Theme by Start Bootstrap",
+        bgImage: "home-bg.jpg"
+    }},
     {path: "/about", component: About, name:"about.index"},
     {path: "/contact", component: Contact, name:"contact.index"},
     {path: "*", component: PageNotFound},
