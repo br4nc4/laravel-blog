@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer class="border-top">
+        <footer class="border-top py-5">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -44,10 +44,11 @@
 <style lang="scss">
     .list-inline-item{
         .fa-stack {
-            background-color: #212529;
+            background-color: var(--color-dark);
             padding: .5rem;
             height: 2.5em;
             border-radius: 50%;
+            transition: background-color .3s;
 
             i {
                 font-size: 24px;
@@ -55,7 +56,7 @@
             }
 
             &:hover {
-                background-color: #0385a1;
+                background-color: var(--color-primary);
             }
         }
     }

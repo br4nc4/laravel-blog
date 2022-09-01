@@ -157,7 +157,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", [_c("footer", {
-    staticClass: "border-top"
+    staticClass: "border-top py-5"
   }, [_c("div", {
     staticClass: "container px-4 px-lg-5"
   }, [_c("div", {
@@ -344,7 +344,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".list-inline-item .fa-stack {\n  background-color: #212529;\n  padding: 0.5rem;\n  height: 2.5em;\n  border-radius: 50%;\n}\n.list-inline-item .fa-stack i {\n  font-size: 24px;\n  color: white;\n}\n.list-inline-item .fa-stack:hover {\n  background-color: #0385a1;\n}", ""]);
+exports.push([module.i, ".list-inline-item .fa-stack {\n  background-color: var(--color-dark);\n  padding: 0.5rem;\n  height: 2.5em;\n  border-radius: 50%;\n  transition: background-color 0.3s;\n}\n.list-inline-item .fa-stack i {\n  font-size: 24px;\n  color: white;\n}\n.list-inline-item .fa-stack:hover {\n  background-color: var(--color-primary);\n}", ""]);
 
 // exports
 
