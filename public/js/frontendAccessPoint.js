@@ -1994,6 +1994,10 @@ __webpack_require__.r(__webpack_exports__);
         _this.posts = resp.data.data;
         _this.paginationData = resp.data;
       });
+    },
+    truncateText: function truncateText(text) {
+      var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+      return text.substring(0, limit) + '...';
     }
   },
   mounted: function mounted() {
@@ -2347,7 +2351,7 @@ var render = function render() {
       staticClass: "post-title"
     }, [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("h3", {
       staticClass: "post-subtitle"
-    }, [_vm._v(_vm._s(post.content))])]), _vm._v(" "), _c("p", {
+    }, [_vm._v(_vm._s(_vm.truncateText(post.content)))])]), _vm._v(" "), _c("p", {
       staticClass: "post-meta"
     }, [_vm._v("\n                            Posted by\n                            "), _c("a", {
       attrs: {

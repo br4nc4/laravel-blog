@@ -8,7 +8,7 @@
                         <div class="post-preview">
                             <a href="post.html">
                                 <h2 class="post-title">{{post.title}}</h2>
-                                <h3 class="post-subtitle">{{post.content}}</h3>
+                                <h3 class="post-subtitle">{{truncateText(post.content)}}</h3>
                             </a>
                             <p class="post-meta">
                                 Posted by
@@ -47,6 +47,9 @@ import axios from "axios";
                     this.posts = resp.data.data
                     this.paginationData = resp.data
                 })
+            },
+            truncateText(text, limit=100) {
+                return text.substring(0, limit) + '...'
             }
         },
         mounted() {
