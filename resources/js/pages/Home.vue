@@ -13,7 +13,7 @@
                             <p class="post-meta">
                                 Posted by
                                 <a href="#!">Start Bootstrap</a>
-                                on {{post.created_At}}
+                                on {{post.created_at}}
                             </p>
                         </div>
 
@@ -56,5 +56,22 @@ import axios from "axios";
 </script>
 
 <style lang="scss">
-
-</style>
+    .post-preview {
+      a {
+        color: black;
+      }
+      >a {
+        text-decoration: none;
+      }
+      .post-title {
+        font-size: 2.25rem;
+        margin-top: 1.875rem;
+        margin-bottom: 0.625rem;
+        font-weight: bolder;
+      }
+      .post-subtitle {
+        font-weight: 300;
+        margin-bottom: 0.625rem;
+      }
+    }
+    </style>
