@@ -18,11 +18,21 @@ const routes = [
     {path: "/", component: Home, name:"home.index",
     meta: {
         title:"Clean Blog",
-        subtitle: "A Blog Theme by Start Bootstrap",
+        subtitle: "Here you can find our post examples",
         bgImage: "home-bg.jpg"
     }},
-    {path: "/about", component: About, name:"about.index"},
-    {path: "/contact", component: Contact, name:"contact.index"},
+    {path: "/about", component: About, name:"about.index",
+    meta: {
+        title:"About Us",
+        subtitle: "A story that begins with us",
+        bgImage: "about-bg.jpg"
+    }},
+    {path: "/contact", component: Contact, name:"contact.index",
+    meta: {
+        title:"Contact Us",
+        subtitle: "Write us a message to tell us what you think about our theme!",
+        bgImage: "contact-bg.jpg"
+    }},
     {path: "*", component: PageNotFound},
 ]
 

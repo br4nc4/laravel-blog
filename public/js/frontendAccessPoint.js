@@ -227,18 +227,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("header", {
     staticClass: "masthead",
-    staticStyle: {
-      "background-image": "url('assets/img/home-bg.jpg')"
-    }
+    style: "background-image: url('/img/".concat(_vm.$route.meta.bgImage, "')")
   }, [_c("div", {
     staticClass: "container position-relative px-4 px-lg-5"
   }, [_c("div", {
@@ -247,10 +238,12 @@ var staticRenderFns = [function () {
     staticClass: "col-md-10 col-lg-8 col-xl-7"
   }, [_c("div", {
     staticClass: "site-heading"
-  }, [_c("h1", [_vm._v("Clean Blog")]), _vm._v(" "), _c("span", {
+  }, [_c("h1", [_vm._v(_vm._s(_vm.$route.meta.title))]), _vm._v(" "), _c("span", {
     staticClass: "subheading"
-  }, [_vm._v("A Blog Theme by Start Bootstrap")])])])])])]);
-}];
+  }, [_vm._v(_vm._s(_vm.$route.meta.subtitle))])])])])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -576,7 +569,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".masthead {\n  padding-top: 12.5rem;\n  padding-bottom: 12.5rem;\n  position: relative;\n  margin-bottom: 3rem;\n  /* padding-top: calc(8rem + 57px);\n  padding-bottom: 8rem; */\n  background: no-repeat center center;\n  background-color: #6c757d;\n  background-size: cover;\n  background-attachment: scroll;\n}\n.masthead .site-heading {\n  text-align: center;\n  color: white;\n}\n.masthead .site-heading h1 {\n  font-size: 5rem;\n  font-weight: bold;\n}\n.masthead .site-heading .subheading {\n  font-size: 1.5rem;\n}", ""]);
+exports.push([module.i, ".masthead {\n  padding-top: 12.5rem;\n  padding-bottom: 12.5rem;\n  position: relative;\n  margin-bottom: 3rem;\n  /* padding-top: calc(8rem + 57px);\n  padding-bottom: 8rem; */\n  background: no-repeat center center;\n  background-color: #6c757d;\n  background-size: cover;\n  background-attachment: scroll;\n}\n.masthead:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #212529;\n  opacity: 0.5;\n}\n.masthead .site-heading {\n  text-align: center;\n  color: white;\n}\n.masthead .site-heading h1 {\n  font-size: 5rem;\n  font-weight: bold;\n}\n.masthead .site-heading .subheading {\n  font-size: 1.5rem;\n}", ""]);
 
 // exports
 
@@ -17477,17 +17470,27 @@ var routes = [
   name: "home.index",
   meta: {
     title: "Clean Blog",
-    subtitle: "A Blog Theme by Start Bootstrap",
+    subtitle: "Here you can find our post examples",
     bgImage: "home-bg.jpg"
   }
 }, {
   path: "/about",
   component: _pages_About_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: "about.index"
+  name: "about.index",
+  meta: {
+    title: "About Us",
+    subtitle: "A story that begins with us",
+    bgImage: "about-bg.jpg"
+  }
 }, {
   path: "/contact",
   component: _pages_Contact_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-  name: "contact.index"
+  name: "contact.index",
+  meta: {
+    title: "Contact Us",
+    subtitle: "Write us a message to tell us what you think about our theme!",
+    bgImage: "contact-bg.jpg"
+  }
 }, {
   path: "*",
   component: _pages_PageNotFound_vue__WEBPACK_IMPORTED_MODULE_5__["default"]

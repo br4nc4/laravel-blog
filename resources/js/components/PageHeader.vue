@@ -1,11 +1,11 @@
 <template>
-        <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+        <header class="masthead" :style="`background-image: url('/img/${$route.meta.bgImage}')`">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>{{$route.meta.title}}</h1>
+                            <span class="subheading">{{$route.meta.subtitle}}</span>
                         </div>
                     </div>
                 </div>
@@ -31,6 +31,17 @@
         background-color: #6c757d;
         background-size: cover;
         background-attachment: scroll;
+
+        &:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #212529;
+            opacity: 0.5;
+        }
 
         .site-heading{
             text-align: center;
