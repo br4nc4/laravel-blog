@@ -1975,6 +1975,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1988,12 +2000,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/posts").then(function (resp) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/posts?page=" + page).then(function (resp) {
+        var _this$posts;
+
         //il primo punto data restituisce i dati del server
         //il secondo punto data restituisce la lista dei post (procedura di impaginazione) 
-        _this.posts = resp.data.data;
+        (_this$posts = _this.posts).push.apply(_this$posts, _toConsumableArray(resp.data.data));
+
         _this.paginationData = resp.data;
       });
+    },
+    loadMoreData: function loadMoreData() {
+      var currentPage = this.paginationData.current_page;
+      this.fetchData(currentPage + 1);
     },
     truncateText: function truncateText(text) {
       var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
@@ -2360,22 +2379,17 @@ var render = function render() {
     }, [_vm._v("Start Bootstrap")]), _vm._v("\n                            on " + _vm._s(post.created_at) + "\n                        ")])]), _vm._v(" "), _c("hr", {
       staticClass: "my-4"
     })]);
-  }), _vm._v(" "), _vm._m(0)], 2)])]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-end mb-4"
+  }, [_c("button", {
+    staticClass: "btn btn-primary text-uppercase",
+    on: {
+      click: _vm.loadMoreData
+    }
+  }, [_vm._v("Older Posts →")])])], 2)])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "d-flex justify-content-end mb-4"
-  }, [_c("a", {
-    staticClass: "btn btn-primary text-uppercase",
-    attrs: {
-      href: "#!"
-    }
-  }, [_vm._v("Older Posts →")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 

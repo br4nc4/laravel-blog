@@ -22,7 +22,9 @@
                     </div>
                     
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <div class="d-flex justify-content-end mb-4">
+                        <button class="btn btn-primary text-uppercase" @click="loadMoreData">Older Posts →</button>
+                    </div>
                 </div>
             </div>
     </div>
@@ -40,14 +42,19 @@ import axios from "axios";
         },
         methods: {
             fetchData(page = 1) {
-                axios.get("api/posts")
+                axios.get("/api/posts?page=" + page)
                 .then((resp) => {
                     //il primo punto data restituisce i dati del server
                     //il secondo punto data restituisce la lista dei post (procedura di impaginazione) 
-                    this.posts = resp.data.data
+                    this.posts.push(...resp.data.data)
                     this.paginationData = resp.data
                 })
             },
+            loadMoreData() {
+                const currentPage = this.paginationData.current_page
+
+                this.fetchData(currentPage + 1)
+            },  
             truncateText(text, limit=100) {
                 return text.substring(0, limit) + '...'
             }
