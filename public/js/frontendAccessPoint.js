@@ -2379,14 +2379,14 @@ var render = function render() {
     }, [_vm._v("Start Bootstrap")]), _vm._v("\n                            on " + _vm._s(post.created_at) + "\n                        ")])]), _vm._v(" "), _c("hr", {
       staticClass: "my-4"
     })]);
-  }), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.paginationData.current_page < _vm.paginationData.last_page ? _c("div", {
     staticClass: "d-flex justify-content-end mb-4"
   }, [_c("button", {
     staticClass: "btn btn-primary text-uppercase",
     on: {
       click: _vm.loadMoreData
     }
-  }, [_vm._v("Older Posts →")])])], 2)])]);
+  }, [_vm._v("Older Posts →")])]) : _vm._e()], 2)])]);
 };
 
 var staticRenderFns = [];

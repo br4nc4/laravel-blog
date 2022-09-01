@@ -22,7 +22,7 @@
                     </div>
                     
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4">
+                    <div class="d-flex justify-content-end mb-4" v-if="paginationData.current_page < paginationData.last_page">
                         <button class="btn btn-primary text-uppercase" @click="loadMoreData">Older Posts →</button>
                     </div>
                 </div>
