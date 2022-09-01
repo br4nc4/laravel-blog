@@ -1,11 +1,20 @@
 <template>
     <div>
-        <h1>La pagina Vue funziona correttamente</h1>
+        <!-- navbar -->
+        <TheNavbar></TheNavbar>
+
+        <!-- contenuto di ogni pagina -->
+
+        <!-- footer -->
+        <TheFooter></TheFooter>
     </div>
 </template>
 
 <script>
-    export default {
+import TheNavbar from '../components/TheNavbar.vue';
+import TheFooter from '../components/TheFooter.vue';
 
-    }
+    export default {
+    components: { TheNavbar, TheFooter }
+}
 </script>
