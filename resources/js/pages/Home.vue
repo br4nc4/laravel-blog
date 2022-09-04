@@ -12,7 +12,7 @@
                             </a>
                             <p class="post-meta">
                                 Posted by
-                                <a href="#!">Start Bootstrap</a>
+                                <a href="#!">{{post.user.name}}</a>
                                 on <em>{{ new Intl.DateTimeFormat("it-IT", { dateStyle: "long", timeStyle: "short" }).format(new
                                     Date(post.created_at))}}</em>
                             </p>

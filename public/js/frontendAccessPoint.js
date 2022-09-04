@@ -2370,7 +2370,7 @@ var render = function render() {
       attrs: {
         href: "#!"
       }
-    }, [_vm._v("Start Bootstrap")]), _vm._v("\n                            on "), _c("em", [_vm._v(_vm._s(new Intl.DateTimeFormat("it-IT", {
+    }, [_vm._v(_vm._s(post.user.name))]), _vm._v("\n                            on "), _c("em", [_vm._v(_vm._s(new Intl.DateTimeFormat("it-IT", {
       dateStyle: "long",
       timeStyle: "short"
     }).format(new Date(post.created_at))))])])]), _vm._v(" "), _c("hr", {
