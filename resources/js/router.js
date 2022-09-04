@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home.vue";
 import About from "./pages/About.vue";
 import Contact from "./pages/Contact.vue";
+import UserPosts from "./pages/UserPosts.vue";
 import PageNotFound from "./pages/PageNotFound.vue";
 
 Vue.use(VueRouter)
@@ -19,6 +20,12 @@ const routes = [
     meta: {
         title:"Clean Blog",
         subtitle: "You can see our post example",
+        bgImage: "home-bg.jpg"
+    }},
+    {path: "/:user_id/posts", component: UserPosts, name:"user.posts",
+    meta: {
+        title:"User Post",
+        subtitle: "List Posts",
         bgImage: "home-bg.jpg"
     }},
     {path: "/about", component: About, name:"about.index",

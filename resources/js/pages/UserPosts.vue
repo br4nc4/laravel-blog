@@ -8,11 +8,11 @@
                         <div class="post-preview">
                             <a href="post.html">
                                 <h2 class="post-title">{{post.title}}</h2>
-                                <h3 class="post-subtitle">{{truncateText(post.content)}}</h3>
+                                <h3 class="post-subtitle">{{post.content}}</h3>
                             </a>
                             <p class="post-meta">
                                 Posted by
-                                <router-link :to="{name:'user.posts', params: {'user_id': post.user.id}}">{{post.user.name}}</router-link>
+                                <a href="#!">{{post.user.name}}</a>
                                 on <em>{{ new Intl.DateTimeFormat("it-IT", { dateStyle: "long", timeStyle: "short" }).format(new
                                     Date(post.created_at))}}</em>
                             </p>
@@ -20,6 +20,8 @@
 
                         <!-- Divider-->
                         <hr class="my-4">
+
+                    
                     </div>
                     
                     <!-- Pager-->
@@ -38,12 +40,18 @@ import axios from "axios";
         data(){
             return {
                 posts: [],
-                paginationData: {}
+                paginationData: {},
+                user: {}
             }
         },
         methods: {
             fetchData(page = 1) {
-                axios.get("/api/posts?page=" + page)
+                axios.get("/api/posts", {
+                    params: {
+                        page: page,
+                        user_id: this.$route.params.user_id
+                    }
+                })
                 .then((resp) => {
                     //il primo punto data restituisce i dati del server
                     //il secondo punto data restituisce la lista dei post (procedura di impaginazione) 
@@ -51,17 +59,24 @@ import axios from "axios";
                     this.paginationData = resp.data
                 })
             },
+            fetchUserData() {
+                axios.get("/api/users/" + this.$route.params.user_id)
+                .then((resp) => {
+                    this.user = resp.data
+
+                    this.$route.meta.title = "Posts by " + this.user.name
+                    this.$router.replace({ query: { temp: Date.now() } })
+                })
+            },
             loadMoreData() {
                 const currentPage = this.paginationData.current_page
 
                 this.fetchData(currentPage + 1)
             },  
-            truncateText(text, limit=100) {
-                return text.substring(0, limit) + '...'
-            }
         },
         mounted() {
-            this.fetchData()
+            this.fetchData();
+            this.fetchUserData();
         }
     }
 </script>
