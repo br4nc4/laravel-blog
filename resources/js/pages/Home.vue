@@ -13,7 +13,8 @@
                             <p class="post-meta">
                                 Posted by
                                 <a href="#!">Start Bootstrap</a>
-                                on {{post.created_at}}
+                                on <em>{{ new Intl.DateTimeFormat("it-IT", { dateStyle: "long", timeStyle: "short" }).format(new
+                                    Date(post.created_at))}}</em>
                             </p>
                         </div>
 

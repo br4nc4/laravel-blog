@@ -2050,26 +2050,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/TheNavbar.vue */ "./resources/js/components/TheNavbar.vue");
 /* harmony import */ var _components_TheFooter_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TheFooter.vue */ "./resources/js/components/TheFooter.vue");
-/* harmony import */ var _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Home.vue */ "./resources/js/pages/Home.vue");
-/* harmony import */ var _pages_Contact_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Contact.vue */ "./resources/js/pages/Contact.vue");
-/* harmony import */ var _pages_About_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/About.vue */ "./resources/js/pages/About.vue");
-/* harmony import */ var _components_PageHeader_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/PageHeader.vue */ "./resources/js/components/PageHeader.vue");
+/* harmony import */ var _components_PageHeader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PageHeader.vue */ "./resources/js/components/PageHeader.vue");
 
 
-
-
+/* import Home from '../pages/Home.vue';
+import Contact from '../pages/Contact.vue';
+import About from '../pages/About.vue'; */
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     TheNavbar: _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     TheFooter: _components_TheFooter_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Home: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Contact: _pages_Contact_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    About: _pages_About_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    PageHeader: _components_PageHeader_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
-  },
-  data: function data() {}
+    PageHeader: _components_PageHeader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }
 });
 
 /***/ }),
@@ -2376,7 +2370,10 @@ var render = function render() {
       attrs: {
         href: "#!"
       }
-    }, [_vm._v("Start Bootstrap")]), _vm._v("\n                            on " + _vm._s(post.created_at) + "\n                        ")])]), _vm._v(" "), _c("hr", {
+    }, [_vm._v("Start Bootstrap")]), _vm._v("\n                            on "), _c("em", [_vm._v(_vm._s(new Intl.DateTimeFormat("it-IT", {
+      dateStyle: "long",
+      timeStyle: "short"
+    }).format(new Date(post.created_at))))])])]), _vm._v(" "), _c("hr", {
       staticClass: "my-4"
     })]);
   }), _vm._v(" "), _vm.paginationData.current_page < _vm.paginationData.last_page ? _c("div", {
