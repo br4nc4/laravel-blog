@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function show($id) {
-        $user = User::findOrFail($id);
+
+        $user = User::select("name", "id")->findOrFail($id);
 
         return response()->json($user);
     }
