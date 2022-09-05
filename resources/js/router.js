@@ -6,6 +6,7 @@ import Home from "./pages/Home.vue";
 import About from "./pages/About.vue";
 import Contact from "./pages/Contact.vue";
 import UserPosts from "./pages/UserPosts.vue";
+import PostShow from "./pages/PostShow.vue";
 import PageNotFound from "./pages/PageNotFound.vue";
 
 Vue.use(VueRouter)
@@ -16,30 +17,46 @@ const routes = [
         path è uguale all'URI da scrivere nella barra degli indirizzi
         component è il componente da mostrare quando la pagina viene visualizzata
     */
-    {path: "/", component: Home, name:"home.index",
+    {
+        path: "/", component: Home, name:"home.index",
     meta: {
         title:"Clean Blog",
         subtitle: "You can see our post example",
         bgImage: "home-bg.jpg"
-    }},
-    {path: "/:user_id/posts", component: UserPosts, name:"user.posts",
+        }
+    },
+    {
+        path: "/posts/:post_slug", component: PostShow, name:"post.show",
+    meta: {
+        title:"Post Details",
+        subtitle: "Post",
+        bgImage: "home-bg.jpg"
+        }
+    },
+    {
+        path: "/:user_id/posts", component: UserPosts, name:"user.posts",
     meta: {
         title:"User Post",
         subtitle: "List Posts",
         bgImage: "home-bg.jpg"
-    }},
-    {path: "/about", component: About, name:"about.index",
+        }
+    },
+    {
+        path: "/about", component: About, name:"about.index",
     meta: {
         title:"About Us",
         subtitle: "A story that begins with us",
         bgImage: "about-bg.jpg"
-    }},
-    {path: "/contact", component: Contact, name:"contact.index",
+        }
+    },
+    {
+        path: "/contact", component: Contact, name:"contact.index",
     meta: {
         title:"Contact Us",
         subtitle: "Write us a message to tell us what you think about our theme!",
         bgImage: "contact-bg.jpg"
-    }},
+        }
+    },
     {path: "*", component: PageNotFound},
 ]
 

@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         $queryString = $request->query();
 
-        $query = Post::select("title","content","id","created_at","user_id");
+        $query = Post::select("title","content","id","created_at","user_id","slug");
 
         if(key_exists("user_id", $queryString)){
             $query->where("user_id", $queryString["user_id"]);
@@ -39,4 +39,10 @@ class PostController extends Controller
 
         return response()->json($posts);
     } 
+
+    public function show($slug)
+    {
+        $post = Post::where("slug", $slug)->first();
+        return response()->json($post);
+    }
 }

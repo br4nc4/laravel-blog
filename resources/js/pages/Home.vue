@@ -6,10 +6,11 @@
                     <div v-for="post in posts" :key="post.id">
                         <!-- Post preview-->
                         <div class="post-preview">
-                            <a href="post.html">
+                            <router-link :to="{name: 'post.show', params: {post_slug: post.slug}}">
                                 <h2 class="post-title">{{post.title}}</h2>
                                 <h3 class="post-subtitle">{{truncateText(post.content)}}</h3>
-                            </a>
+                            </router-link>
+                            
                             <p class="post-meta">
                                 Posted by
                                 <router-link :to="{name:'user.posts', params: {'user_id': post.user.id}}">{{post.user.name}}</router-link>

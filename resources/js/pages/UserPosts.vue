@@ -47,8 +47,10 @@ import axios from "axios";
         methods: {
             fetchData(page = 1) {
                 axios.get("/api/posts", {
+                    // in axios params è uguale a query string
                     params: {
                         page: page,
+                        //il punto paramas contiene tutti i parametri dinamici di questa rotta ("URL")
                         user_id: this.$route.params.user_id
                     }
                 })
