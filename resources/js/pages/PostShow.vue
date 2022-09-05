@@ -4,8 +4,12 @@
         <div class="mb-4" v-html="post.content"></div>
 
         <div class="d-flex">
-            <h4 class="me-3">Categories: </h4>
-            <h4>Tags: </h4>
+            <h4 v-if="post.category" class="me-3">Categories: {{post.category.name}}</h4>
+            <h4 v-if="post.tags && post.tags.length > 0">Tags: 
+                <div class="badge badge-light text-dark" v-for="tag in post.tags" :key="tag.id">
+                    #{{tag.name}}
+                </div>
+            </h4>
         </div>
     </div>
 </template>

@@ -2577,19 +2577,19 @@ var render = function render() {
     domProps: {
       innerHTML: _vm._s(_vm.post.content)
     }
-  }), _vm._v(" "), _vm._m(0)]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_vm.post.category ? _c("h4", {
+    staticClass: "me-3"
+  }, [_vm._v("Categories: " + _vm._s(_vm.post.category.name))]) : _vm._e(), _vm._v(" "), _vm.post.tags && _vm.post.tags.length > 0 ? _c("h4", [_vm._v("Tags: \n            "), _vm._l(_vm.post.tags, function (tag) {
+    return _c("div", {
+      key: tag.id,
+      staticClass: "badge badge-light text-dark"
+    }, [_vm._v("\n                #" + _vm._s(tag.name) + "\n            ")]);
+  })], 2) : _vm._e()])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "d-flex"
-  }, [_c("h4", {
-    staticClass: "me-3"
-  }, [_vm._v("Categories: ")]), _vm._v(" "), _c("h4", [_vm._v("Tags: ")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
