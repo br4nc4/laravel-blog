@@ -18,7 +18,7 @@ class PostController extends Controller
 {
     private function findBySlug($slug)
     {
-        $post = Post::where("slug", $slug)->first();
+        $post = Post::where("slug", $slug)->withTrashed()->first();
 
         if(!$post){
             abort(404);
