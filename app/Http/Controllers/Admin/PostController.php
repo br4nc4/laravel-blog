@@ -227,7 +227,16 @@ class PostController extends Controller
     {
         $post = $this->findBySlug($slug);
 
-        $post->delete();
+        //se l'elemento è già cancellato in softDelete, lo elimino definitivamente
+        if ($post->trashed()){
+            //Annulla tutte le eventuali relazioni attive,
+            //che altrimenti impedirebbero dicancellare il post
+            $post->tags()->detach();
+            $post->forceDelete();
+        } else {
+            $post->delete();
+        }
+        
         
         return redirect()->route("admin.posts.index");
     }
