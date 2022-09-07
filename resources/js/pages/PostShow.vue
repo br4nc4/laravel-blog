@@ -1,6 +1,7 @@
 <template>
     <div class="container px-4">
         <h2>{{post.title}}</h2>
+        <img :src="post.cover_img" alt="">
         <div class="mb-4" v-html="post.content"></div>
 
         <div class="d-flex">
