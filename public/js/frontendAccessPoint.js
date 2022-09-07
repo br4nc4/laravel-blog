@@ -1934,7 +1934,23 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      user: null
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/user").then(function (resp) {
+      _this.user = resp.data;
+    });
+  }
+});
 
 /***/ }),
 
@@ -2374,7 +2390,19 @@ var render = function render() {
         name: "contact.index"
       }
     }
-  }, [_vm._v("Contact")])], 1)])])])]);
+  }, [_vm._v("Contact")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-item"
+  }, [_vm.user ? _c("a", {
+    staticClass: "nav-link px-lg-3 py-3 py-lg-4",
+    attrs: {
+      href: "/admin"
+    }
+  }, [_vm._v("Area Admin")]) : _c("a", {
+    staticClass: "nav-link px-lg-3 py-3 py-lg-4",
+    attrs: {
+      href: "/login"
+    }
+  }, [_vm._v("Login")])])])])])]);
 };
 
 var staticRenderFns = [function () {

@@ -19,6 +19,11 @@
                         <li class="nav-item">
                             <router-link class="nav-link px-lg-3 py-3 py-lg-4" :to="{name: 'contact.index'}">Contact</router-link>
                         </li>
+
+                        <li class="nav-item">
+                            <a v-if="user" class="nav-link px-lg-3 py-3 py-lg-4" href="/admin">Area Admin</a>
+                            <a v-else class="nav-link px-lg-3 py-3 py-lg-4" href="/login">Login</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -26,8 +31,20 @@
 </template>
 
 <script>
-    export default {
+import axios from 'axios';
 
+    export default {
+        data() {
+            return {
+                user: null
+            }
+        },
+        mounted() {
+            axios.get("/api/user")
+            .then(resp=>{
+                this.user = resp.data
+            })
+        }
     }
 </script>
 
