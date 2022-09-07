@@ -223,12 +223,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy(Request $request, $slug)
     {
+        $forceDelete = $request->query->has("force-delete"); 
+
         $post = $this->findBySlug($slug);
 
         //se l'elemento è già cancellato in softDelete, lo elimino definitivamente
-        if ($post->trashed()){
+        if ($post->trashed() || $forceDelete){
             //Annulla tutte le eventuali relazioni attive,
             //che altrimenti impedirebbero dicancellare il post
             $post->tags()->detach();
